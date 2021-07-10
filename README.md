@@ -16,14 +16,28 @@ So the aim of the project is to classify if a potential prospect would subcribe 
 The best model found was using AutoMl experiment run. With AutoMl we have achieved classification prediction accuracy of 91.8% with VotingEnsemble model. 
 
 ## Scikit-learn Pipeline
-The pipeline consists of a custom-coded Scikit-learn model logistic regression model stored in train.py script. The following steps are part of the pipeline:
+The pipeline consists of a custom-coded Scikit-learn model logistic regression model stored in train.py script and a Hyperdrive run sweeping over model paramters. The following steps are part of the pipeline:
 - Data cleaning and converting categorical data into one hot encoded data
 - Splitting data into train and test sets
-- Setting logistic regression parameters: C - Inverse of regularization strenght and Maximum number of iterations converge
+- Setting logistic regression parameters: 
+    - --C - Inverse of regularization strenght 
+    - --max_iter - Maximum number of iterations convergence
+- Azure Cloud resources configuration
+- Creating a HyperDrive configuration using the estimator, hyperparameter sampler, and policy
+- Retrieve the best run and save the model from that run
 
 
+**RandomParameterSampling**
+Defines random sampling over a hyperparameter search space. In this sampling algorithm, parameter values are chosen from a set of discrete values or a distribution over a continuous range. This has an advantage against GridSearch method that runs all combinations of parameters and requires large amount of time to run.
 
-**What are the benefits of the parameter sampler you chose?**
+For the Inverse of regularization strenght parameter I have chosen uniform distribution with min=0.001 and max=1.0 
+For the Maximum number of iterations convergence I inputed a range of values (5, 25, 50, 100, 150)
+
+The best model given by HyperDrive has the following parameters:
+- --C = 0.3016
+- --max_iter = 50
+
+
 
 **What are the benefits of the early stopping policy you chose?**
 

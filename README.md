@@ -8,17 +8,20 @@ You can see the main steps that I have taken in the diagram below:
 
 ![image](creating-and-optimizing-an-ml-pipeline.png)
 
-
-
-
-
 ## Summary
-**In 1-2 sentences, explain the problem statement: e.g "This dataset contains data about... we seek to predict..."**
+The dataset used in this project is related with direct marketing campaigns of a Portuguese banking institution. The marketing campaigns were based on phone calls. Often, more than one contact to the same client was required, in order to assess if the product (bank term deposit) would be ('yes') or not ('no') subscribed which is what we are predicting in this project.
 
-**In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
+So the aim of the project is to classify if a potential prospect would subcribe to the bank's term deposit. 
+
+The best model found was using AutoMl experiment run. With AutoMl we have achieved classification prediction accuracy of 91.8% with VotingEnsemble model. 
 
 ## Scikit-learn Pipeline
-**Explain the pipeline architecture, including data, hyperparameter tuning, and classification algorithm.**
+The pipeline consists of a custom-coded Scikit-learn model logistic regression model stored in train.py script. The following steps are part of the pipeline:
+- Data cleaning and converting categorical data into one hot encoded data
+- Splitting data into train and test sets
+- Setting logistic regression parameters: C - Inverse of regularization strenght and Maximum number of iterations converge
+
+
 
 **What are the benefits of the parameter sampler you chose?**
 

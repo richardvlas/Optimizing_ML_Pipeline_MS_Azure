@@ -13,7 +13,7 @@ The dataset used in this project is related with direct marketing campaigns of a
 
 So the aim of the project is to classify if a potential prospect would subcribe to the bank's term deposit. 
 
-The best model found using AutoML experiment run has achieved classification prediction accuracy of 91.68% with VotingEnsemble model whereas the Logistic regression model with optimized hyperparameters has achieved accuracy of 91.697%. 
+The best model found using AutoML experiment run has achieved classification prediction accuracy of 91.68% with VotingEnsemble model whereas the Logistic regression model with optimized hyperparameters from HyperDrive has achieved accuracy of 91.697%. 
 
 ## Scikit-learn Pipeline
 The pipeline consists of a custom-coded Scikit-learn model logistic regression model stored in train.py script and a Hyperdrive run sweeping over model paramters. The following steps are part of the pipeline:
@@ -59,7 +59,34 @@ The AutoML generated an ensemble of 5 ML models consisting of XGBoostClassifier 
 
 A sample of hyperparameters for one XGBoostClassifier in the ensemble is shown below:
 
-- **xxx**
+- 'base_score': 0.5
+- 'booster': 'gbtree'
+- 'colsample_bylevel': 1
+- 'colsample_bynode': 1
+- 'colsample_bytree': 0.9
+- 'eta': 0.3
+- 'gamma': 0
+- 'learning_rate': 0.1
+- 'max_delta_step': 0
+- 'max_depth': 10
+- 'max_leaves': 15
+- 'min_child_weight': 1
+- 'missing': nan
+- 'n_estimators': 25
+- 'n_jobs': 1
+- 'nthread': None
+- 'objective': 'reg:logistic'
+- 'random_state': 0
+- 'reg_alpha': 0
+- 'reg_lambda': 0.5208333333333334
+- 'scale_pos_weight': 1
+- 'seed': None
+- 'silent': None
+- 'subsample': 0.6
+- 'tree_method': 'auto'
+- 'verbose': -10
+- 'verbosity': 0
+
 
 ## Pipeline comparison
 Both models performed similarly with respect to the training accuracy with HyperDrive giving the accuracy of 91.697% and AutoML with accuracy of 91.68%. The advantage of AutoML is that it allows to test a large variety of ML algoritms when compared to a single algorithm being tuned by HyperDrive. This is a real advantage as we can easily evaluate many different algorithms and make sure we selected the right one. 

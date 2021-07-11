@@ -87,6 +87,14 @@ A sample of hyperparameters for one XGBoostClassifier in the ensemble is shown b
 - 'verbose': -10
 - 'verbosity': 0
 
+Threre are many parameters one can set when using XGBoostClassifier, the purpose of few of those are as follows:
+- 'booster': set to 'gbtree' defines a booster that uses tree based models
+- 'eta': is a step size shrinkage used in update to prevents overfitting
+- 'learning_rate': the step for each iteration update
+- 'max_depth': Maximum depth of a tree. Increasing this value will make the model more complex and more likely to overfit. 
+
+More information can be found at the XGBoost [Documentation](https://xgboost.readthedocs.io/en/latest/)
+
 
 ## Pipeline comparison
 Both models performed similarly with respect to the training accuracy with HyperDrive giving the accuracy of 91.697% and AutoML with accuracy of 91.68%. The advantage of AutoML is that it allows to test a large variety of ML algoritms when compared to a single algorithm being tuned by HyperDrive. This is a real advantage as we can easily evaluate many different algorithms and make sure we selected the right one. 

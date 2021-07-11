@@ -35,9 +35,9 @@ For the Maximum number of iterations convergence I inputed a range of values (5,
 **BanditPolicy Class**
 Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation. This greatly helps to ensure if model with given parameters is not performing well, it is turned down instead of running it for any longer.  
 
-The best model given by HyperDrive has the following parameters:
-- --C = 0.3016
-- --max_iter = 50
+The best model given by HyperDrive resulted in training accuracy of 91.7%. The hyperparameters of the model are as follows:
+- --C = 0.7104
+- --max_iter = 25
 
 
 ## AutoML
@@ -51,7 +51,12 @@ The steps to implement AutoML are the following:
 - Creating a dataset in Azure ML
 - Setting up parameters for AutoML to find the best model and paramters
 
-The best model found by AutoML was a VotingEnsemble having training accuracy of 91.8%.
+The best model found by AutoML was a VotingEnsemble having training accuracy of **xxx%**. 
+
+A VotingEnsemble is an ensemble machine learning model that combines the predictions from multiple other models. The VotingEnsemble class used by AutoMLConfig object defines an ensemble created from previous AutoML iterations that implements soft voting, which uses weighted averages.
+
+The hyperparameters for this optimized model are as follows:
+- **xxx**
 
 ## Pipeline comparison
 Both models performed similarly with respect to the training accuracy with HyperDrive giving the accuracy of 91.4% and AutoML with accuracy of 91.8%. The advantage of AutoML is that it allows to test a large variaty of ML algoritms in compare to a single algorithm tuned by HyperDrive. This is the real advantage as we can easily evaluate so many algorithms and make sure we selected the right one. 

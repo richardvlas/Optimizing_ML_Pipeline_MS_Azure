@@ -13,7 +13,7 @@ The dataset used in this project is related with direct marketing campaigns of a
 
 So the aim of the project is to classify if a potential prospect would subcribe to the bank's term deposit. 
 
-The best model found was using AutoMl experiment run. With AutoMl we have achieved classification prediction accuracy of 91.8% with VotingEnsemble model. 
+The best model found using AutoML experiment run has achieved classification prediction accuracy of 91.68% with VotingEnsemble model whereas the Logistic regression model with optimized hyperparameters has achieved accuracy of 91.697%. 
 
 ## Scikit-learn Pipeline
 The pipeline consists of a custom-coded Scikit-learn model logistic regression model stored in train.py script and a Hyperdrive run sweeping over model paramters. The following steps are part of the pipeline:
@@ -35,7 +35,7 @@ For the Maximum number of iterations convergence I inputed a range of values (5,
 **BanditPolicy Class**
 Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation. This greatly helps to ensure if model with given parameters is not performing well, it is turned down instead of running it for any longer.  
 
-The best model given by HyperDrive resulted in training accuracy of 91.7%. The hyperparameters of the model are as follows:
+The best model given by HyperDrive resulted in training accuracy of 91.697%. The hyperparameters of the model are as follows:
 - --C = 0.7104
 - --max_iter = 25
 
@@ -51,15 +51,18 @@ The steps to implement AutoML are the following:
 - Creating a dataset in Azure ML
 - Setting up parameters for AutoML to find the best model and paramters
 
-The best model found by AutoML was a VotingEnsemble having training accuracy of **xxx%**. 
+The best model found by AutoML was a VotingEnsemble having training accuracy of 91.68%. 
 
-A VotingEnsemble is an ensemble machine learning model that combines the predictions from multiple other models. The VotingEnsemble class used by AutoMLConfig object defines an ensemble created from previous AutoML iterations that implements soft voting, which uses weighted averages.
+A VotingEnsemble is an ensemble machine learning model that combines the predictions from multiple other models. The VotingEnsemble class used by AutoMLConfig object defines an ensemble created from previous AutoML iterations that implements soft voting, which uses weighted averages. 
 
-The hyperparameters for this optimized model are as follows:
+The AutoML generated an ensemble of 5 ML models consisting of XGBoostClassifier and LightGBM classifier.
+
+A sample of hyperparameters for one XGBoostClassifier in the ensemble is shown below:
+
 - **xxx**
 
 ## Pipeline comparison
-Both models performed similarly with respect to the training accuracy with HyperDrive giving the accuracy of 91.4% and AutoML with accuracy of 91.8%. The advantage of AutoML is that it allows to test a large variaty of ML algoritms in compare to a single algorithm tuned by HyperDrive. This is the real advantage as we can easily evaluate so many algorithms and make sure we selected the right one. 
+Both models performed similarly with respect to the training accuracy with HyperDrive giving the accuracy of 91.697% and AutoML with accuracy of 91.68%. The advantage of AutoML is that it allows to test a large variety of ML algoritms when compared to a single algorithm being tuned by HyperDrive. This is a real advantage as we can easily evaluate many different algorithms and make sure we selected the right one. 
 
 ## Future work
 Some areas of improvement are the following:
